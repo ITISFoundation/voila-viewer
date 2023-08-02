@@ -54,6 +54,3 @@ docker-compose.yml
 validation/
 
 *.ignore.*
-
-# requirements go in .in file, txt generated with Makefile target
-requirements.txt
