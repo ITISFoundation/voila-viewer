@@ -2,7 +2,7 @@
 name: 💬 Question
 about: Ask a question
 labels: question
-assignees: elisabettai, newton1985, app-team
+assignees: elisabettai
 ---
 
 ## What version of this service are you using?

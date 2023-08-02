@@ -2,7 +2,7 @@
 name: 🐛 Bug
 about: File a bug/issue
 labels: bug
-assignees: GitHK
+assignees: elisabettai
 ---
 
 ## What version of this service are you using?
