@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>FlaskApp</title>
+    <title>Auto-Reload on Content Change</title>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <h2>Welcome to FlaskApp!</h2>
+    <h1>Waiting for voila.ipynb in input 1...</h1>
+    <p>If voilà doesn't load after connecting input 1, reload the Service UI</p>
+    <script>
+        function getContent() {
+            fetch('/') // Replace with your actual GET request URL
+                .then(response => response.text())
+                .then(data => {
+                    const hidden_element = document.getElementById('content');
+                    if (hidden_element) {
+                        const hidden_content = hidden_element.textContent;
+
+                        if (!data.includes(hidden_content) && data.includes(atob("dm9pbGE="))) {
+                            console.log('Content changed. Reloading the page...');
+                            location.reload();
+                        }
+                        else
+                            console.log("content did not change");
+                    }
+                })
+                .catch(error => console.error('Error fetching content:', error));
+        }
+
+        // Check for updates every 0.5 seconds
+        const intervalTime = 2000;
+        setInterval(getContent, intervalTime);
+    </script>
+    <div id="content" , style="display: none;">{{unique_tracking_token}}</div>
 </body>
+
 </html>

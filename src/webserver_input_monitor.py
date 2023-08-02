@@ -1,14 +1,18 @@
 import flask, requests, multiprocessing
 from flask import render_template
 from time import sleep
+from uuid import uuid4
 import os
 from pathlib import Path
 
 app = flask.Flask(__name__)
 
+UNIQUE_TOKEN = "_".join([f"{uuid4()}" for x in range(10)])
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    unique_tracking_token = UNIQUE_TOKEN
+    return render_template("index.html", unique_tracking_token=unique_tracking_token)
 
 server = multiprocessing.Process(target=app.run, args=("0.0.0.0", 8888))
 
@@ -21,4 +25,4 @@ while not os.path.exists(input_nb):
 server.terminate()
 server.join()
 
-sleep(5)
+#sleep(5)
