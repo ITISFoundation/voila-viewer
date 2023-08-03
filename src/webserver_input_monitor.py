@@ -24,5 +24,3 @@ while not os.path.exists(input_nb):
 
 server.terminate()
 server.join()
-
-#sleep(5)
