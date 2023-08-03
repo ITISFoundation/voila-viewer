@@ -1,4 +1,4 @@
-restart-policy: on-inputs-downloaded
+restart-policy: no-restart
 settings:
   - name: ports
     type: int

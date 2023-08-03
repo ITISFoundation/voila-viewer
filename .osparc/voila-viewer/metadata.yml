@@ -154,5 +154,10 @@ inputs:
       Any input files. One or several files compressed in a zip will be
       downloaded in an inputs folder.
     type: data:*/*
-outputs: {}
-min-visible-inputs: 4
+outputs:
+  output_1:
+    displayOrder: 1.0
+    label: Output files 1
+    description: Output files uploaded from the outputs folder
+    type: data:*/*
+min-visible-inputs: 2
