@@ -76,4 +76,4 @@ python /src/webserver_input_monitor.py
 echo "Starting voila"
 cp $DY_SIDECAR_PATH_INPUTS/input_1/voila.ipynb "${NOTEBOOK_BASE_DIR}"/workspace/voila.ipynb
 
-voila "${NOTEBOOK_BASE_DIR}"/workspace/voila.ipynb --enable_nbextensions=True --port 8888 --Voila.ip="0.0.0.0" --no-browser
+voila "${NOTEBOOK_BASE_DIR}"/workspace/voila.ipynb --enable_nbextensions=True --port 8888 --Voila.ip="0.0.0.0" --no-browser #--VoilaConfiguration.file_whitelist="['.*']" 
