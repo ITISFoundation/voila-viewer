@@ -1,0 +1,4 @@
+services:
+  voila-viewer:
+    build:
+      dockerfile: Dockerfile

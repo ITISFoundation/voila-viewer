@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Auto-Reload on Content Change</title>
+</head>
+
+<body style="background-color:#252525;color:white">
+        <h1> Waiting for Jupyter notebook... </h1>
+        <p>Add a voila.ipynb file in input 1. </br></br> If voila.ipynb is not rendered after connecting input 1, reload the Service UI</p>
+        <img src="https://raw.githubusercontent.com/ITISFoundation/osparc-services/3e7c9cf09c551f03058410e056177e963005efac/services/dy-dash/cc-rabbit-2d/src/cc-rabbit-2d/static/Loading.gif" />
+    
+    <script>
+        const searchToken = "PCEtLSB2b2lsYSBzcGlubmVyIC0tPg==";
+        function getContent() {
+            fetch('/') // Replace with your actual GET request URL
+                .then(response => {
+                    console.log(response)
+                    if (response.status === 200) {
+                        return response.text()
+                    }
+                    throw Error('Bad response')
+                })
+                .then(data => {
+                    const hidden_element = document.getElementById('content');
+                    if (hidden_element) {
+                        const hidden_content = hidden_element.textContent;
+
+                        if (!data.includes(hidden_content) && data.includes(atob(searchToken))) {
+                            console.log('Content changed. Reloading the page...');
+                            location.reload();
+                        }
+                        else
+                            console.log("content did not change");
+                    }
+                })
+                .catch(error => console.error('Error fetching content:', error));
+        }
+
+        // going lower will cause multiple kernels to be started
+        const checkInteervalMS = 2000;
+        setInterval(getContent, checkInteervalMS);
+    </script>
+    <div id="content" , style="display: none;">{{unique_tracking_token}}</div>
+    
+</body>
+
+</html>
