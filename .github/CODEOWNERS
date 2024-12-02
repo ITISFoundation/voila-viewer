@@ -3,7 +3,7 @@
 # Order is important. The last matching pattern has the most precedence.
 # SEE https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners#example-of-a-codeowners-file
 
-* @elisabettai
+* @GitHK
 
 # NOTE: '/' denotes the root of the repository
 /src/templates/index.html   @GitHK
