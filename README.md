@@ -23,3 +23,4 @@ make build publish-local
 
 ### In o²S²PARC
 Use the "Voila-viewer Example" template in master.
+
